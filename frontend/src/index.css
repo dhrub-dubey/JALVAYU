@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface-0 text-surface-900 antialiased;
+    background-color: #0a0e14;
+    color: #e2e8f0;
+  }
+
+  * {
+    @apply border-surface-300;
+  }
+
+  /* Scrollbars */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-400 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-500;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-surface-100/80 backdrop-blur-md border border-surface-300/60;
+  }
+
+  .glass-panel {
+    @apply bg-surface-100/70 backdrop-blur-xl border border-surface-300/50;
+  }
+
+  .card {
+    @apply bg-surface-100 border border-surface-300/60 rounded-lg;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 hover:bg-primary-500 text-white shadow-sm shadow-primary-600/20;
+  }
+
+  .btn-ghost {
+    @apply btn text-surface-800 hover:bg-surface-200 hover:text-surface-900;
+  }
+
+  .btn-outline {
+    @apply btn border border-surface-400 hover:bg-surface-200 text-surface-800;
+  }
+
+  .input {
+    @apply w-full bg-surface-200 border border-surface-400 rounded-md px-3 py-1.5 text-sm text-surface-900 placeholder-surface-600 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 transition-colors;
+  }
+
+  .label {
+    @apply block text-xs font-medium text-surface-700 mb-1.5 uppercase tracking-wide;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply badge bg-success-500/15 text-success-400 border border-success-500/30;
+  }
+
+  .badge-warning {
+    @apply badge bg-warning-500/15 text-warning-400 border border-warning-500/30;
+  }
+
+  .badge-error {
+    @apply badge bg-error-500/15 text-error-400 border border-error-500/30;
+  }
+
+  .badge-info {
+    @apply badge bg-primary-500/15 text-primary-400 border border-primary-500/30;
+  }
+
+  .badge-neutral {
+    @apply badge bg-surface-300 text-surface-700 border border-surface-400;
+  }
+
+  .section-title {
+    @apply text-sm font-semibold text-surface-900 uppercase tracking-wider;
+  }
+
+  .metric-value {
+    @apply font-mono font-semibold tabular-nums;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-md text-sm text-surface-700 hover:bg-surface-200 hover:text-surface-900 transition-colors cursor-pointer;
+  }
+
+  .nav-item-active {
+    @apply bg-primary-600/15 text-primary-400 hover:bg-primary-600/20 hover:text-primary-400;
+  }
+
+  .skeleton {
+    @apply bg-gradient-to-r from-surface-200 via-surface-300 to-surface-200 bg-[length:200%_100%] animate-shimmer rounded;
+  }
+}
+
+/* Leaflet dark theme overrides */
+.leaflet-container {
+  background: #0a0e14 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.leaflet-control-zoom a {
+  background: #141a23 !important;
+  color: #e2e8f0 !important;
+  border-color: #2a3548 !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #1a2230 !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(15, 20, 27, 0.8) !important;
+  color: #64748b !important;
+}
+
+.leaflet-control-attribution a {
+  color: #94a3b8 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #141a23 !important;
+  color: #e2e8f0 !important;
+  border: 1px solid #2a3548 !important;
+  border-radius: 8px !important;
+}
+
+.leaflet-popup-tip {
+  background: #141a23 !important;
+}
+
+.leaflet-bar {
+  border: 1px solid #2a3548 !important;
+}
+
+/* Custom range slider */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  background: #2a3548;
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -6px;
+  background: #06b6d4;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.3);
+}
+
+input[type='range']::-moz-range-track {
+  background: #2a3548;
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type='range']::-moz-range-thumb {
+  background: #06b6d4;
+  height: 16px;
+  width: 16px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.3);
+}
+
+/* Recharts dark theme */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #2a3548;
+}
+
+.recharts-text {
+  fill: #64748b;
+}
+
+.recharts-default-tooltip {
+  background: #141a23 !important;
+  border: 1px solid #2a3548 !important;
+  border-radius: 8px !important;
+}
+
+.recharts-tooltip-label {
+  color: #e2e8f0 !important;
+}
+
+/* ===== Light theme ===== */
+html.light {
+  color-scheme: light;
+}
+html.light body {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+html.light .card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+html.light .glass {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(226, 232, 240, 0.6);
+}
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(226, 232, 240, 0.5);
+}
+html.light .input {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+html.light .btn-ghost {
+  color: #475569;
+}
+html.light .btn-ghost:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+html.light .btn-outline {
+  border-color: #cbd5e1;
+  color: #334155;
+}
+html.light .btn-outline:hover {
+  background: #f1f5f9;
+}
+html.light .nav-item {
+  color: #475569;
+}
+html.light .nav-item:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+html.light .nav-item-active {
+  background: rgba(6, 182, 212, 0.1);
+  color: #0891b2;
+}
+html.light .nav-item-active:hover {
+  color: #0891b2;
+}
+html.light .leaflet-container {
+  background: #e2e8f0 !important;
+}
+html.light .leaflet-control-zoom a {
+  background: #ffffff !important;
+  color: #334155 !important;
+  border-color: #cbd5e1 !important;
+}
+html.light .leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  color: #1e293b !important;
+  border-color: #e2e8f0 !important;
+}
+html.light .leaflet-popup-tip {
+  background: #ffffff !important;
+}
+html.light .recharts-cartesian-grid-horizontal line,
+html.light .recharts-cartesian-grid-vertical line {
+  stroke: #e2e8f0;
+}
+html.light .recharts-text {
+  fill: #64748b;
+}
+
+/* ===== Accessibility: reduced motion ===== */
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* ===== Accessibility: high contrast ===== */
+html.high-contrast body {
+  color: #ffffff;
+}
+html.high-contrast .card {
+  border-color: #64748b;
+  border-width: 1.5px;
+}
+html.high-contrast .input {
+  border-color: #94a3b8;
+  border-width: 1.5px;
+}
+html.high-contrast .btn-outline {
+  border-color: #94a3b8;
+  border-width: 1.5px;
+}
+html.high-contrast .glass-panel {
+  border-color: #64748b;
+  border-width: 1.5px;
+}
+html.high-contrast .nav-item-active {
+  background: rgba(6, 182, 212, 0.25);
+  border-left: 3px solid #06b6d4;
+}
+
+/* ===== Accessibility: large text ===== */
+html.large-text body {
+  font-size: 1.0625rem;
+}
+html.large-text .text-xs {
+  font-size: 0.8125rem;
+}
+html.large-text .text-sm {
+  font-size: 0.9375rem;
+}
+html.large-text .text-base {
+  font-size: 1.0625rem;
+}
+html.large-text .text-lg {
+  font-size: 1.25rem;
+}
+html.large-text .text-xl {
+  font-size: 1.375rem;
+}
+html.large-text .text-2xl {
+  font-size: 1.625rem;
+}
