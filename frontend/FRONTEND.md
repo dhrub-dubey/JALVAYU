@@ -1,30 +1,4 @@
 
-# Bolt Prompt Wrapper
-
-## Instructions to Bolt
-
-Read the entire specification below before generating any code.
-
-Do not skip any section. Treat every requirement as mandatory.
-
-Do not simplify, remove, merge, or ignore features because of complexity.
-
-Implement the application as a cohesive production-quality project.
-
-Keep the exact technology stack unless a dependency is unavailable.
-
-Use reusable components, proper folder organization, consistent design, clean TypeScript, responsive layouts according to the specification, proper loading/error states, and realistic mock data where backend data is not yet available.
-
-Scaffold REST API services and WebSocket integration so they are ready to connect to the FastAPI backend.
-
-Maintain a consistent design system across every page.
-
-Avoid placeholder pages and "Coming Soon" screens.
-
-Complete every feature described below.
-
----
-
 # Climate Digital Twin Frontend - Project Overview
 
 ## Overview
